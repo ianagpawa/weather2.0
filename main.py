@@ -4,8 +4,11 @@ import webapp2
 import json
 import httplib2
 import requests
+import pprint
+from Weather import get_weather
 
 from Handler import Handler
+
 
 class MainPage(Handler):
     """
@@ -21,7 +24,7 @@ class MainPage(Handler):
 #
 #
 #
-        url = "http://api.wunderground.com/api/%s/forecast/q/autoip.json?geo_ip=%s.json" % (KEY, TEST_IP)
+        url = "http://api.wunderground.com/api/%s/forecast10day/q/autoip.json?geo_ip=%s" % (KEY, TEST_IP)
 #
 #
 #
@@ -34,11 +37,15 @@ class MainPage(Handler):
         if result.get('error') is not None:
             response = make_response(json.dumps(result.get('error')), 500)
             response.heads['Content-Type'] = 'application/json'
-            print response
             return response
-        print result
+
+        weather_days = get_weather(result)
+        print weather_days
+
+
 
         return self.render("main_page.html")
+
 
 
 
