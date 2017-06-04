@@ -40,7 +40,12 @@ class MainPage(Handler):
             return response
 
         weather_days = get_weather(result)
-        print weather_days
+        today = weather_days[0]
+        rest = weather_days[1:]
+        print 'today'
+        pprint.pprint(today)
+        print 'the rest of the days'
+        pprint.pprint(rest)
 
 
 

@@ -2,8 +2,8 @@ def get_weather(result):
     arr = []
 
     for i in range(7):
-        simpleforecast = result['forecast']['simpleforecast']['forecastday'][0]
-        txtforecast = result['forecast']['txt_forecast']['forecastday'][0]
+        simpleforecast = result['forecast']['simpleforecast']['forecastday'][i]
+        txtforecast = result['forecast']['txt_forecast']['forecastday'][i]
         date = simpleforecast['date']
 
         day = date['day']
