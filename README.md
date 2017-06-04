@@ -8,9 +8,20 @@ Clone the repo:
 ```
 git clone https://github.com/ianagpawa/weather2.0.git
 ```
+### Install Dependencies
+1. Install `google app engine (python)` and `gcloud` on your system.
+2.  In the app folder location, create folder `lib`.
+3.  Install the following third-party libraries with the following command:
+`pip install -t lib/ <library_name>`
+libraries:
+*   httplib2
+*   Requests
+
+4.  In the same location as the `app.yaml` file, create file `app_engine_config.py`
 
 ### Viewing the app locally
-In order to run the app locally, you will need `google app engine (python)` and `gcloud` installed on your system. Run the following command while the terminal is in the project directory:
+
+Run the following command while the terminal is in the project directory:
 ```
 dev_appserver.py .
 ```

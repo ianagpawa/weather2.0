@@ -14,8 +14,20 @@ class MainPage(Handler):
     def get(self):
         ip = self.request.remote_addr
         KEY = json.loads(open('client_secrets.json', 'r').read())['UNDERGROUND']
-        url = "http://api.wunderground.com/api/%s/forecast/q/autoip.json?geo_ip=%s.json" % (KEY, ip)
-
+        TEST_IP = json.loads(open('client_secrets.json', 'r').read())['TEST_IP']
+        # NEED TO CHANGE IP
+#
+#
+#
+#
+#
+        url = "http://api.wunderground.com/api/%s/forecast/q/autoip.json?geo_ip=%s.json" % (KEY, TEST_IP)
+#
+#
+#
+#
+#
+#
         h = httplib2.Http()
         result = json.loads(h.request(url,'GET')[1])
 
