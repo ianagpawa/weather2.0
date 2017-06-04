@@ -14,8 +14,8 @@ git clone https://github.com/ianagpawa/weather2.0.git
 3.  Install the following third-party libraries with the following command:
 `pip install -t lib/ <library_name>`
 libraries:
-*   httplib2
-*   Requests
+   `httplib2`
+   `Requests`
 
 4.  In the same location as the `app.yaml` file, create file `app_engine_config.py`
 
