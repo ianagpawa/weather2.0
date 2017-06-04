@@ -1,0 +1,9 @@
+body{
+    font-family: 'Cormorant Garamond', serif;
+}
+
+#today{
+    border: 1px solid black;
+    height: 23vw;
+    padding: 5px;
+}

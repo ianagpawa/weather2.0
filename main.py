@@ -42,14 +42,10 @@ class MainPage(Handler):
         weather_days = get_weather(result)
         today = weather_days[0]
         rest = weather_days[1:]
-        print 'today'
-        pprint.pprint(today)
-        print 'the rest of the days'
-        pprint.pprint(rest)
 
 
 
-        return self.render("main_page.html")
+        return self.render("main_page.html", today=today, rest=rest)
 
 
 

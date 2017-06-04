@@ -25,11 +25,36 @@
 
 
     </head>
-    <body>
-    <h1>Current Weather</h1>
-    <div class="col-md-6 col-md-offset-3">
-        {% block content %}
-        {% endblock %}
+    <body class='text-center'>
+        <div class="col-md-12">
+            <h1>The Weather Forecast</h1>
+        </div>
+        <div id='today' class="col-md-2 col-md-offset-5">
+            <h2>{{today.weekday}}</h2>
+            <h3>{{today.monthname}} {{today.day}}, {{today.year}}</h3>
+            <h3>High: {{today.high.fahrenheit}}&#176; Low: {{today.low.fahrenheit}}&#176;</h3>
+            <img src='{{today.icon_url}}' height='50' width='50'>
+            <h4>{{today.conditions}}</h4>
+
+            <h4>Conditions: {{today.text[0]}}</h4>
+            <p>Humidity: {{today.humidity}}</p>
+            <p>Wind: {{today.wind[0]}} {{today.wind[1][0]}} mph</p>
+        </div>
+    <div class='col-md-8 col-md-offset-2'>
+        {% for day in rest %}
+        <div class='col-md-2'>
+            <h2>{{day.weekday}}</h2>
+            <h3>{{day.monthname}} {{day.day}}, {{day.year}}</h3>
+            <h4>High: {{day.high.fahrenheit}}&#176; </h4>
+            <h4>Low: {{day.low.fahrenheit}}&#176;</h4>
+            <img src='{{day.icon_url}}' height='50' width='50'>
+            <h4>{{day.conditions}}</h4>
+
+            <h4>{{day.text[0]}}</h4>
+            <p>Humidity: {{day.humidity}}</p>
+            <p>Wind: {{day.wind[0]}} {{day.wind[1][0]}} mph</p>
+        </div>
+        {% endfor %}
     </div>
     </body>
 </html>
