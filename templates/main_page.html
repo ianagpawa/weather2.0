@@ -29,32 +29,31 @@
         <div class="col-md-12">
             <h1>The Weather Forecast</h1>
         </div>
-        <div id='today' class="col-md-2 col-md-offset-5">
+
+        <div id='today' class="col-md-4 col-md-offset-4">
             <h2>{{today.weekday}}</h2>
             <h4>{{today.monthname}} {{today.day}}, {{today.year}}</h4>
-            <h3>High: {{today.high.fahrenheit}}&#176; Low: {{today.low.fahrenheit}}&#176;</h3>
+            <h3> Low: {{today.low.fahrenheit}}&#176;    High: {{today.high.fahrenheit}}&#176;</h3>
             <img src='{{today.icon_url}}' height='50' width='50'>
             <h4>{{today.conditions}}</h4>
-            <br>
-            <h4>{{today.text[0]}}</h4>
-            <p>Humidity: {{today.humidity}}</p>
-            <p>Wind: {{today.wind[0]}} {{today.wind[1][0]}} mph</p>
+            <p>{{today.text[0]}}</p>
+            <h5>Humidity: {{today.humidity}} Wind: {{today.wind[0]}} {{today.wind[1][0]}} mph</h5>
         </div>
-    <div class='col-md-10 col-md-offset-1'>
-        {% for day in rest %}
-        <div class='col-md-2'>
-            <h2>{{day.weekday}}</h2>
-            <h3>{{day.monthname}} {{day.day}}, {{day.year}}</h3>
-            <h4>High: {{day.high.fahrenheit}}&#176; </h4>
-            <h4>Low: {{day.low.fahrenheit}}&#176;</h4>
-            <img src='{{day.icon_url}}' height='50' width='50'>
-            <h4>{{day.conditions}}</h4>
-            <br>
-            <h4>{{day.text[0]}}</h4>
-            <p>Humidity: {{day.humidity}}</p>
-            <p>Wind: {{day.wind[0]}} {{day.wind[1][0]}} mph</p>
+
+        <div class='col-md-12'>
+            <div class='container'>
+            {% for day in rest %}
+            <div class='col-md-2 days'>
+                <h2>{{day.weekday}}</h2>
+                <h4>{{day.monthname}} {{day.day}}, {{day.year}}</h4>
+                <h4>Low: {{day.low.fahrenheit}}&#176;    High: {{day.high.fahrenheit}}&#176; </h4>
+                <img src='{{day.icon_url}}' height='40' width='40'>
+                <h4>{{day.conditions}}</h4>
+                <p>{{day.text[0]}}</p>
+                <p>Humidity: {{day.humidity}} Wind: {{day.wind[0]}} {{day.wind[1][0]}} mph</p>
+            </div>
+            {% endfor %}
+            </div>
         </div>
-        {% endfor %}
-    </div>
     </body>
 </html>

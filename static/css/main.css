@@ -3,7 +3,6 @@ body{
 }
 
 #today{
-    border: 1px solid black;
-    height: 23vw;
-    padding: 5px;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
 }
