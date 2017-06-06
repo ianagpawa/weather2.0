@@ -34,7 +34,6 @@ def get_weather(result):
 
         fcttext = txtforecast['fcttext']
         fcttext_metric = txtforecast['fcttext_metric']
-        pprint.pprint(result['forecast']['simpleforecast']['forecastday'][0])
 
 
         current = {

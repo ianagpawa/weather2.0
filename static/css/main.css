@@ -1,17 +1,41 @@
 body{
+    background-color: #D7D7D7;
     font-family: 'Cormorant Garamond', serif;
 }
 
 .top-div{
     margin-top: 5vh;
 }
-
-#today{
-    margin-bottom: 5vh;
+#location{
+    margin-top: 2vh;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-style: oblique;
+}
+.bold{
+    font-weight: 900;
 }
 
-.imperial{
+.light-bold{
+    font-weight: 600;
+}
 
+#convert-button{
+    background-color: #660000;
+    color: white;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 2vh;
+    font-size: 1.4em;
+    border-radius: 25px;
+}
+
+#today{
+    margin-bottom: 3vh;
+}
+
+p{
+    font-size: 1.2em;
 }
 
 .metric{
