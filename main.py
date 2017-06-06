@@ -24,7 +24,7 @@ class MainPage(Handler):
 #
 #
 #
-        url = "http://api.wunderground.com/api/%s/forecast10day/q/autoip.json?geo_ip=%s" % (KEY, TEST_IP)
+        url = "http://api.wunderground.com/api/%s/forecast10day/q/autoip.json?geo_ip=%s" % (KEY, ip)
 #
 #
 #
