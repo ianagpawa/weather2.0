@@ -26,31 +26,40 @@
 
     </head>
     <body class='text-center'>
-        <div class="col-md-12">
-            <h1>The Weather Forecast</h1>
+        <div class="col-md-12 top-div">
+            <h1>{{today.location}}</h1>
+            <button type="button" class="btn btn-default metric">Imperial</button>
+            <button type="button" class="btn btn-default imperial" >Metric</button>
         </div>
 
         <div id='today' class="col-md-4 col-md-offset-4">
             <h2>{{today.weekday}}</h2>
             <h4>{{today.monthname}} {{today.day}}, {{today.year}}</h4>
-            <h3> Low: {{today.low.fahrenheit}}&#176;    High: {{today.high.fahrenheit}}&#176;</h3>
+            <h3 class='imperial'> Low: {{today.low.fahrenheit}}&#176;F    High: {{today.high.fahrenheit}}&#176;F</h3>
+            <h3 class='metric'> Low: {{today.low.celsius}}&#176;C    High: {{today.high.celsius}}&#176;C</h3>
             <img src='{{today.icon_url}}' height='50' width='50'>
             <h4>{{today.conditions}}</h4>
-            <p>{{today.text[0]}}</p>
-            <h5>Humidity: {{today.humidity}} Wind: {{today.wind[0]}} {{today.wind[1][0]}} mph</h5>
+            <p class='imperial'>{{today.text[0]}}</p>
+            <p class='metric'>{{today.text[1]}}</p>
+            <h5 class='imperial'>Humidity: {{today.humidity}} Wind: {{today.wind[0]}} {{today.wind[1][0]}} mph</h5>
+            <h5 class='metric'>Humidity: {{today.humidity}} Wind: {{today.wind[0]}} {{today.wind[1][1]}} kph</h5>
         </div>
 
-        <div class='col-md-12'>
+
+        <div class='col-md-12 bottom-row'>
             <div class='container'>
             {% for day in rest %}
             <div class='col-md-2 days'>
                 <h2>{{day.weekday}}</h2>
                 <h4>{{day.monthname}} {{day.day}}, {{day.year}}</h4>
-                <h4>Low: {{day.low.fahrenheit}}&#176;    High: {{day.high.fahrenheit}}&#176; </h4>
+                <h4 class='imperial'>Low: {{day.low.fahrenheit}}&#176;F    High: {{day.high.fahrenheit}}&#176;F </h4>
+                <h4 class='metric'>Low: {{day.low.celsius}}&#176;C    High: {{day.high.celsius}}&#176;C </h4>
                 <img src='{{day.icon_url}}' height='40' width='40'>
                 <h4>{{day.conditions}}</h4>
-                <p>{{day.text[0]}}</p>
-                <p>Humidity: {{day.humidity}} Wind: {{day.wind[0]}} {{day.wind[1][0]}} mph</p>
+                <p class='imperial'>{{day.text[0]}}</p>
+                <p class='metric'>{{day.text[1]}}</p>
+                <p class='imperial'>Humidity: {{day.humidity}} Wind: {{day.wind[0]}} {{day.wind[1][0]}} mph</p>
+                <p class='metric'>Humidity: {{day.humidity}} Wind: {{day.wind[0]}} {{day.wind[1][1]}} kph</p>
             </div>
             {% endfor %}
             </div>

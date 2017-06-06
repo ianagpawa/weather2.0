@@ -1,15 +1,20 @@
+import pprint
 def get_weather(result):
     arr = []
 
     for i in range(7):
         simpleforecast = result['forecast']['simpleforecast']['forecastday'][i]
         txtforecast = result['forecast']['txt_forecast']['forecastday'][i]
+
         date = simpleforecast['date']
 
         day = date['day']
         monthname = date['monthname']
         year = date['year']
         weekday = date['weekday']
+        tz_long = date['tz_long']
+        city_name = tz_long.split("/")[1]
+        location = " ".join(city_name.split("_"))
 
         high = simpleforecast['high']
         # {u'celsius': u'19', u'fahrenheit': u'66'}
@@ -29,6 +34,7 @@ def get_weather(result):
 
         fcttext = txtforecast['fcttext']
         fcttext_metric = txtforecast['fcttext_metric']
+        pprint.pprint(result['forecast']['simpleforecast']['forecastday'][0])
 
 
         current = {
@@ -36,6 +42,7 @@ def get_weather(result):
             "monthname": monthname,
             "year": year,
             "weekday": weekday,
+            'location': location,
             "high": high,
             "low": low,
             "icon": icon,

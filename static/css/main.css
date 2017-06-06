@@ -2,7 +2,18 @@ body{
     font-family: 'Cormorant Garamond', serif;
 }
 
+.top-div{
+    margin-top: 5vh;
+}
+
 #today{
-    margin-top: 2vh;
-    margin-bottom: 3vh;
+    margin-bottom: 5vh;
+}
+
+.imperial{
+
+}
+
+.metric{
+    display:none;
 }
