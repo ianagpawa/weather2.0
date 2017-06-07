@@ -1,13 +1,41 @@
-body{
-    background-color: #D7D7D7;
-    font-family: 'Cormorant Garamond', serif;
+@media screen and (max-width: 700px){
+
+    #today,
+    .days{
+        margin-top: 10vh;
+
+    }
+
+    p{
+        font-size: 40px;
+    }
 }
 
+
+@media screen and (min-width: 750px){
+    .bottom-row{
+        display: table-row;
+        border-collapse: collapse;
+    }
+
+    .days{
+        display: table-cell;
+    }
+}
+
+
+body{
+    background-color: #E6F3F7;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+}
+
+
 .top-div{
-    margin-top: 5vh;
+    margin-top: 2vh;
 }
 #location{
-    margin-top: 2vh;
+    margin-top: 3vh;
     font-variant: small-caps;
     font-weight: bold;
     font-style: oblique;
@@ -25,11 +53,15 @@ body{
     color: white;
     width: 50%;
     margin-left: 25%;
-    margin-top: 2vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
     font-size: 1.4em;
     border-radius: 25px;
 }
 
+#convert-button:hover{
+    cursor: pointer;
+}
 #today{
     margin-bottom: 3vh;
 }
