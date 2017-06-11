@@ -75,5 +75,45 @@
             {% endfor %}
             </div>
         </div>
+
+        <!-- Modal -->
+
+    <section>
+        <div class="modal fade text-center" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="myModalLabel"></h3>
+                        <p id='date-completed'></p>
+                    </div>
+                    <div class="modal-body">
+                        <p id='project-description'></p>
+                        <a id='pj-web-link' target="_blank">
+                            <img class="img-responsive"
+                            id="modal-img" alt="screenshot of project homepage">
+                        </a>
+
+
+                        <p id='details'></p>
+                        <!--
+                        <ul id='bullets'></ul>
+                    -->
+                        <p id='tools'></p>
+                        <a target="_blank" id="git-repo">
+                            <i class="fa fa-github" id='github-link'
+                                aria-hidden="true"></i>
+                        </a>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                            data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     </body>
 </html>
