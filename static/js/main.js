@@ -38,12 +38,21 @@ function modal(){
         var windStrength = button.data('wind-strength')
         var text = button.data('text')
 
-        var modal = $(this)
-        // modal.find('.modal-title').text(day)
-        // modal.find('.modal-body input').val(day)
+        var date = monthname + " " + day + ", " + year
 
-        // console.log(JSON.parse(day))
-        console.log([day, monthname, year, weekday, location, high, low, icon,iconurl, conditions, humidity, windDirection, windStrength, text])
+        var modal = $(this)
+        modal.find('.modal-day').text(weekday)
+        modal.find('.modal-date').text(date)
+        modal.find('.modal-icon').attr('src', iconurl)
+        modal.find('.modal-conditions').text(conditions)
+        modal.find('.modal-low').text(low)
+        modal.find('.modal-high').text(high)
+        modal.find('.modal-humidity').text(humidity)
+        modal.find('.modal-wind-direction').text(windDirection)
+        modal.find('.modal-wind-strength').text(windStrength)
+        modal.find('.modal-text').text(text)
+        // modal.find('.modal-body input').val(day)
+        // console.log([day, monthname, year, weekday, location, high, low, icon,iconurl, conditions, humidity, windDirection, windStrength, text])
         // modal.find(".modal-content")
     })
 }

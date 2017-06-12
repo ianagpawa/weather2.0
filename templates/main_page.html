@@ -112,24 +112,23 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Weather</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <h2 class="modal-day light-bold" id="exampleModalLabel"></h2>
+                <h4 class='modal-date'></h4>
               </div>
               <div class="modal-body">
-                  <div class='modal-content'>
+                  <div class='col-md-12'>
+                    <div class='col-md-4'>Humidity: <span class='modal-humidity'></span></div>
+                    <div class='col-md-4'>
+                        <h4 class='light-bold'>Temp: <span class='modal-low'></span>&#176;F - <span class='modal-high'></span>&#176;F</h4>
+                    </div>
+                    <div class='col-md-4'>Wind: <span class='modal-wind-direction'></span> at <span class='modal-wind-strength'>mph</span></div>
                   </div>
-                <form>
-                  <div class="form-group">
-                    <label for="recipient-name" class="form-control-label">Recipient:</label>
-                    <input type="text" class="form-control" id="recipient-name">
+                  <div class='container-full'>
+                      <img class='modal-icon' height='100' width='100'>
                   </div>
-                  <div class="form-group">
-                    <label for="message-text" class="form-control-label">Message:</label>
-                    <textarea class="form-control" id="message-text"></textarea>
-                  </div>
-                </form>
+                  <h3 class='light-bold modal-conditions'></h3>
+
+                  <h3 class='modal-text'></h3>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
