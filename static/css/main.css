@@ -73,3 +73,8 @@ p{
 .metric{
     display:none;
 }
+
+.weather-day:hover{
+    cursor: pointer;
+    cursor: hand;
+}
