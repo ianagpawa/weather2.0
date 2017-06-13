@@ -35,20 +35,7 @@ def get_weather(result):
         fcttext = txtforecast['fcttext']
         fcttext_metric = txtforecast['fcttext_metric']
 
-        # current = {}
-        # current.day = day
-        # current.monthname = monthname
-        # current.year = year
-        # current.weekday = weekday
-        # current.location = location
-        # current.high = high
-        # current.low = low
-        # current.icon = icon
-        # current.icon_url = icon_url
-        # current.conditions = conditions
-        # current.humidity = humidity
-        # current.wind = [direction, [mph, kph]]
-        # current.text = [fcttext, fcttext_metric]
+
         current = {
             "day": day,
             "monthname": monthname,

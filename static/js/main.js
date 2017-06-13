@@ -51,9 +51,7 @@ function modal(){
         modal.find('.modal-wind-direction').text(windDirection)
         modal.find('.modal-wind-strength').text(windStrength)
         modal.find('.modal-text').text(text)
-        // modal.find('.modal-body input').val(day)
-        // console.log([day, monthname, year, weekday, location, high, low, icon,iconurl, conditions, humidity, windDirection, windStrength, text])
-        // modal.find(".modal-content")
+
     })
 }
 

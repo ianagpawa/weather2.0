@@ -78,3 +78,17 @@ p{
     cursor: pointer;
     cursor: hand;
 }
+
+
+.modal-content
+ {
+    background-color: #F3F3F3;;
+}
+
+.modal-header{
+    height: 13vh;
+}
+
+.modal-body{
+    background-color: #FAFAFA;
+}
