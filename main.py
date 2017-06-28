@@ -5,7 +5,7 @@ import json
 import httplib2
 import requests
 import pprint
-from Weather import WeatherDay as WeatherDay, get_forecast as get_forecast, get_hourly as get_hourly
+from weather import get_all_weather as get_all_weather
 
 from Handler import Handler
 
@@ -32,25 +32,18 @@ class MainPage(Handler):
         j = httplib2.Http()
         forecast_result = json.loads(j.request(forecast_url,'GET')[1])
 
-
         if forecast_result.get('error') is not None:
             response = make_response(json.dumps(forecast_result.get('error')), 500)
             response.heads['Content-Type'] = 'application/json'
             return response
 
-        hourly_forecast = hourly_result['hourly_forecast']
 
-        test = get_hourly(hourly_forecast)
-        for i in test:
-            print i
-
-
-        forecast_10day = get_forecast(forecast_result)
+        get_all_weather(hourly_result, forecast_result)
 
 
 
-        today_forecast = forecast_10day[0]
-        rest_forecast = forecast_10day[1:]
+
+
         today = []
         rest = []
 
