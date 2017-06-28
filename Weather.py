@@ -1,5 +1,13 @@
 import pprint
+
 def get_weather(result):
+    arr = []
+
+    return arr
+
+
+
+def get_weather_old(result):
     arr = []
 
     for i in range(7):
