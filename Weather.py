@@ -1,13 +1,41 @@
 import pprint
 
-def get_weather(result):
-    arr = []
+class WeatherDay():
 
-    return arr
+    def __init__(self, result):
+        fcttime = result['FCTTIME']
+
+        time = fcttime['civil']
+        mday = fcttime['mday']
+        month = fcttime['month_name']
+        weekday = fcttime['weekday_name']
+        year = fcttime['year']
+
+        condition = result['condition']
+        feels = result['feelslike']
+        humidity = result['humidity']
+        icon_url = result['icon_url']
+        temp = result['temp']
+        wind_direction = result['wdir']
+        wind_speed = result['wspd']
+
+        self.time = time
+        self.mday = mday
+        self.month = month
+        self.weekday = weekday
+        self.year = year
+        self.condition = condition
+        self.feels = feels
+        self.humidity = humidity
+        self.icon_url = icon_url
+        self.temp = temp
+        self.wind_direction = wind_direction
+        self.wind_speed = wind_speed
 
 
 
-def get_weather_old(result):
+
+def get_forecast(result):
     arr = []
 
     for i in range(7):
@@ -61,3 +89,27 @@ def get_weather_old(result):
             }
         arr.append(current)
     return arr
+
+
+def get_hourly(hourly):
+    today = []
+    rest_of_days = []
+    # for i in range(3):
+    #     day = WeatherDay(hourly[i])
+    #     print vars(day)
+    j = 3
+    i = 0
+    while i < 6:
+        day_obj = hourly[j]
+        hour = day_obj['FCTTIME']['hour']
+        if hour == '12':
+
+            feels = day_obj['feelslike']
+            temp = day_obj['temp']
+
+            day = [feels, temp]
+            rest_of_days.append(day)
+
+            i += 1
+        j += 1
+    return rest_of_days
