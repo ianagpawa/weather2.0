@@ -45,7 +45,7 @@ def get_forecast(result):
 def get_hourly(hourly):
     today = []
     rest_of_days = []
-    for i in range(3):
+    for i in range(4):
         day = hourly[i]
         feels = day['feelslike']
         temp = day['temp']
@@ -53,7 +53,7 @@ def get_hourly(hourly):
         time = day['FCTTIME']['civil']
         today_hour = [time, feels, temp]
         today.append(today_hour)
-    j = 3
+    j = 4
     i = 0
     while i < 6:
         day_obj = hourly[j]
@@ -143,6 +143,12 @@ class WeatherDay():
         self.text = text
 
 
+class Today(WeatherDay):
+    def __init__(self, forecast, hourly):
+        WeatherDay.__init__(self, forecast, hourly)
+
+
+
 
 def get_all_weather(hourly_result, forecast_result):
     hourly_forecast = hourly_result['hourly_forecast']
@@ -158,6 +164,6 @@ def get_all_weather(hourly_result, forecast_result):
         forecast = rest_forecast[i]
 
         day = WeatherDay(forecast, hourly)
-        pprint.pprint(vars(day)) 
+        pprint.pprint(vars(day))
 
     today = []
