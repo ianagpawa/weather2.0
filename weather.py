@@ -45,66 +45,34 @@ def get_forecast(result):
 def get_hourly(hourly):
     today = []
     rest_of_days = []
+    all_days = []
     for i in range(4):
         day = hourly[i]
         feels = day['feelslike']
         temp = day['temp']
 
-        time = day['FCTTIME']['civil']
-        today_hour = [time, feels, temp]
+        fcttime = day['FCTTIME']
+        time = fcttime['civil']
+        mday = fcttime['mday']
+        mon =fcttime['mon']
+
+        today_hour = [time, feels, temp, mon, mday]
         today.append(today_hour)
-    j = 4
-    i = 0
-    while i < 6:
+    j = 0
+    count = 0
+    while count < 7:
         day_obj = hourly[j]
         hour = day_obj['FCTTIME']['hour']
-        if hour == '12':
-
-            feels = day_obj['feelslike']
-            temp = day_obj['temp']
-
-            day = [feels, temp]
-            rest_of_days.append(day)
-
-            i += 1
+        feels = day_obj['feelslike']
+        temp = day_obj['temp']
+        # civil = day_obj['FCTTIME']['civil']
+        # mday = day_obj['FCTTIME']['mday']
+        day = [feels, temp]
+        if count == 0 or hour == '12':
+            all_days.append(day)
+            count += 1
         j += 1
-    return today, rest_of_days
-
-# class Today():
-#     def __init__(self, forecast, hourly):
-#         time = hourly[0]
-#         self.time = time
-#         feels = hourly[1]
-#         self.feels = feels
-#         current_temp = hour[2]
-#         self.current_temp = current_temp
-#
-#         day = forecast[0]
-#         self.day = day
-#         monthname = forecast[1]
-#         self.monthname = monthname
-#         year = forecast[2]
-#         self.year = year
-#         weekday = forecast[3]
-#         self.weekday = weekday
-#         location = forecast[4]
-#         self.location = location
-#         high = forecast[5]
-#         self.high = high
-#         low = forecast[6]
-#         self.low = low
-#         icon = forecast[7]
-#         self.icon = icon
-#         icon_url = forecast[8]
-#         self.icon_url = icon_url
-#         conditions = forecast[9]
-#         self.conditions = conditions
-#         humidity = forecast[10]
-#         self.humidity = humidity
-#         wind = forecast[11]
-#         self.wind = wind
-#         text = forecast[12]
-#         self.text = text
+    return today, all_days
 
 
 class WeatherDay():
@@ -144,26 +112,26 @@ class WeatherDay():
 
 
 class Today(WeatherDay):
-    def __init__(self, forecast, hourly):
+    def __init__(self, forecast, hourly, hours):
         WeatherDay.__init__(self, forecast, hourly)
-
-
-
+        self.hours = hours
 
 def get_all_weather(hourly_result, forecast_result):
+    all_days = []
     hourly_forecast = hourly_result['hourly_forecast']
-    today_hours, rest_hours = get_hourly(hourly_forecast)
+    today_hours, all_hours = get_hourly(hourly_forecast)
 
     forecast_10day = get_forecast(forecast_result)
 
-    today_forecast = forecast_10day[0]
-    rest_forecast = forecast_10day[1:]
-
-    for i in range(len(rest_forecast)):
-        hourly = rest_hours[i]
-        forecast = rest_forecast[i]
+    for i in range(len(forecast_10day)):
+        hourly = all_hours[i]
+        forecast = forecast_10day[i]
 
         day = WeatherDay(forecast, hourly)
-        pprint.pprint(vars(day))
+        all_days.append(day)
 
-    today = []
+
+    today_forecast = forecast_10day[0]
+    today = Today(today_forecast, today_hours[0], today_hours[1:])
+
+    return today, all_days
