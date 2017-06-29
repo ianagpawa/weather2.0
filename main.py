@@ -38,19 +38,9 @@ class MainPage(Handler):
             return response
 
 
-        get_all_weather(hourly_result, forecast_result)
+        today, rest = get_all_weather(hourly_result, forecast_result)
 
-
-
-
-
-        today = []
-        rest = []
-
-
-
-
-        return self.render("front.html", today=today, rest=rest)
+        return self.render("main_page.html", today=today, rest=rest)
 
 
 

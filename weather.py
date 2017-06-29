@@ -56,7 +56,7 @@ def get_hourly(hourly):
         mday = fcttime['mday']
         mon =fcttime['mon']
 
-        today_hour = [time, feels, temp, mon, mday]
+        today_hour = [feels, temp, time, mon, mday]
         today.append(today_hour)
     j = 0
     count = 0
@@ -117,7 +117,7 @@ class Today(WeatherDay):
         self.hours = hours
 
 def get_all_weather(hourly_result, forecast_result):
-    all_days = []
+    rest = []
     hourly_forecast = hourly_result['hourly_forecast']
     today_hours, all_hours = get_hourly(hourly_forecast)
 
@@ -126,12 +126,10 @@ def get_all_weather(hourly_result, forecast_result):
     for i in range(len(forecast_10day)):
         hourly = all_hours[i]
         forecast = forecast_10day[i]
+        if i == 0:
+            today = Today(forecast, hourly, today_hours)
+        else:
+            day = WeatherDay(forecast, hourly)
+            rest.append(day)
 
-        day = WeatherDay(forecast, hourly)
-        all_days.append(day)
-
-
-    today_forecast = forecast_10day[0]
-    today = Today(today_forecast, today_hours[0], today_hours[1:])
-
-    return today, all_days
+    return today, rest
