@@ -45,29 +45,46 @@
 
         <div class='col-md-12'>
             <div class='col-md-10 col-md-offset-1'>
-            <div id='today' class="col-md-4 col-md-offset-4 weather-day" data-toggle="modal" data-target="#Modal" data-day='{{today.day}}'
-                data-monthname='{{today.monthname}}'
-                data-year='{{today.year}}'
-                data-weekday='{{today.weekday}}'
-                data-location='{{today.location}}'
-                data-high='{{today.high.fahrenheit}}'
-                data-low='{{today.low.fahrenheit}}'
-                data-icon='{{today.icon}}'
-                data-iconurl='{{today.icon_url}}'
-                data-conditions='{{today.conditions}}'
-                data-humidity='{{today.humidity}}'
-                data-wind-direction='{{(today.wind)[0]}}'
-                data-wind-strength='{{(today.wind)[1][0]}}'
-                data-text='{{today.text[0]}}'
-                >
-                <h2 class='light-bold'>{{today.weekday}}</h2>
-                <h4>{{today.monthname}} {{today.day}}, {{today.year}}</h4>
-                <h3 class='imperial'> Low: <span class='light-bold'>{{today.low.fahrenheit}}&#176;F</span>    High: <span class='light-bold'>{{today.high.fahrenheit}}&#176;F</span></h3>
-                <h3 class='metric'> Low: <span class='light-bold'>{{today.low.celsius}}&#176;C</span>    High: <span class='light-bold'>{{today.high.celsius}}&#176;C</span></h3>
-                <img src='{{today.icon_url}}' height='75' width='75'>
-                <h3 class='light-bold'>{{today.conditions}}</h3>
+                <div class="col-md-3 col-md-offset-2">
+                    {% for day in today.hours %}
+                    <div class='container-fluid'>
+                        <h2>{{day.temp.english}}</h2>
+                        <h3>{{day.time}}</h3>
+                        <h3>{{day.mon}}</h3>
+                        <h3>{{day.mday}}</h3>
+                        <h3>{{day.feels.english}}</h3>
+                    </div>
+                    {% endfor %}
+
+                </div>
+                <div id='today' class="col-md-4 weather-day" data-toggle="modal" data-target="#Modal" data-day='{{today.day}}'
+                    data-monthname='{{today.monthname}}'
+                    data-year='{{today.year}}'
+                    data-weekday='{{today.weekday}}'
+                    data-location='{{today.location}}'
+                    data-high='{{today.high.fahrenheit}}'
+                    data-low='{{today.low.fahrenheit}}'
+                    data-icon='{{today.icon}}'
+                    data-iconurl='{{today.icon_url}}'
+                    data-conditions='{{today.conditions}}'
+                    data-humidity='{{today.humidity}}'
+                    data-wind-direction='{{(today.wind)[0]}}'
+                    data-wind-strength='{{(today.wind)[1][0]}}'
+                    data-text='{{today.text[0]}}'
+                    >
+                    <h2 class='light-bold'>{{today.weekday}}</h2>
+                    <h4>{{today.monthname}} {{today.day}}, {{today.year}}</h4>
+                    <h3 class='imperial light-bold'>{{today.current_temp.english}}&#176;F</h3>
+                    <h3 class='metric light-bold'>{{today.current_temp.metric}}&#176;C</h3>
+
+                    <!-- <h3 class='imperial'> Low: <span class='light-bold'>{{today.low.fahrenheit}}&#176;F</span>    High: <span class='light-bold'>{{today.high.fahrenheit}}&#176;F</span></h3>
+                    <h3 class='metric'> Low: <span class='light-bold'>{{today.low.celsius}}&#176;C</span>    High: <span class='light-bold'>{{today.high.celsius}}&#176;C</span></h3> -->
+                    <img src='{{today.icon_url}}' height='75' width='75'>
+                    <h3 class='light-bold'>{{today.conditions}}</h3>
+                    <h4 class='imperial'>Feels like {{today.feels.english}}&#176;F</h4>
+                    <h4 class='metric'>Feels like {{today.feels.metric}}&#176;C</h4>
+                </div>
             </div>
-        </div>
         </div>
 
 

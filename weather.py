@@ -56,7 +56,14 @@ def get_hourly(hourly):
         mday = fcttime['mday']
         mon =fcttime['mon']
 
-        today_hour = [feels, temp, time, mon, mday]
+        # today_hour = [feels, temp, time, mon, mday]
+        today_hour = {
+            'feels': feels,
+            'temp': temp,
+            'time': time,
+            'mon': mon,
+            'mday': mday
+        }
         today.append(today_hour)
     j = 0
     count = 0
