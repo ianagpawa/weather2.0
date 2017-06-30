@@ -31,6 +31,10 @@ body{
 }
 
 
+.inline{
+    display: inline;
+}
+
 .top-div{
     margin-top: 2vh;
 }

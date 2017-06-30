@@ -48,11 +48,11 @@
                 <div class="col-md-3 col-md-offset-2">
                     {% for day in today.hours %}
                     <div class='container-fluid'>
-                        <h2>{{day.temp.english}}</h2>
-                        <h3>{{day.time}}</h3>
-                        <h3>{{day.mon}}</h3>
-                        <h3>{{day.mday}}</h3>
-                        <h3>{{day.feels.english}}</h3>
+                        <h4 class='inline'>{{day.mon}}/{{day.mday}}</h4>
+                        <h3 class='inline'>{{day.time}}</h3>
+
+                        <h3 class='inline'>{{day.temp.english}}</h3>
+                        <h4 class='inline'>{{day.feels.english}}</h4>
                     </div>
                     {% endfor %}
 

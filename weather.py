@@ -46,7 +46,7 @@ def get_hourly(hourly):
     today = []
     rest_of_days = []
     all_days = []
-    for i in range(4):
+    for i in range(5):
         day = hourly[i]
         feels = day['feelslike']
         temp = day['temp']
@@ -56,7 +56,6 @@ def get_hourly(hourly):
         mday = fcttime['mday']
         mon =fcttime['mon']
 
-        # today_hour = [feels, temp, time, mon, mday]
         today_hour = {
             'feels': feels,
             'temp': temp,
