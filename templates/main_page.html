@@ -45,19 +45,8 @@
 
         <div class='col-md-12'>
             <div class='col-md-10 col-md-offset-1'>
-                <div class="col-md-3 col-md-offset-2">
-                    {% for day in today.hours %}
-                    <div class='container-fluid'>
-                        <h4 class='inline'>{{day.mon}}/{{day.mday}}</h4>
-                        <h3 class='inline'>{{day.time}}</h3>
 
-                        <h3 class='inline'>{{day.temp.english}}</h3>
-                        <h4 class='inline'>{{day.feels.english}}</h4>
-                    </div>
-                    {% endfor %}
-
-                </div>
-                <div id='today' class="col-md-4 weather-day" data-toggle="modal" data-target="#Modal" data-day='{{today.day}}'
+                <div id='today' class="col-md-3 col-md-offset-3 weather-day" data-toggle="modal" data-target="#Modal" data-day='{{today.day}}'
                     data-monthname='{{today.monthname}}'
                     data-year='{{today.year}}'
                     data-weekday='{{today.weekday}}'
@@ -83,6 +72,19 @@
                     <h3 class='light-bold'>{{today.conditions}}</h3>
                     <h4 class='imperial'>Feels like {{today.feels.english}}&#176;F</h4>
                     <h4 class='metric'>Feels like {{today.feels.metric}}&#176;C</h4>
+                </div>
+
+                <div class="col-md-4">
+                    {% for day in today.hours %}
+                    <div class='container-fluid text-left'>
+                        <!-- <h4 class='inline'>{{day.mon}}/{{day.mday}}</h4> -->
+                        <h3 class='inline'>{{day.time}}</h3>
+                        <h3 class='imperial inline '>{{day.temp.english}}&#176;F</h3>
+                        <h3 class='metric inline '>{{day.temp.metric}}&#176;C</h3>
+                        <h4 class='inline'>{{day.condition}}</h4>
+                    </div>
+                    {% endfor %}
+
                 </div>
             </div>
         </div>
