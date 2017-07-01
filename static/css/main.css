@@ -1,5 +1,9 @@
 
-
+@media screen and (max-width: 700px){
+    .hourly-div{
+        width: 100%;
+    }
+}
 
 @media screen and (max-width: 700px){
 
@@ -16,7 +20,7 @@
 
 
 
-@media screen and (min-width: 750px){
+@media screen and (min-width: 701px) and (max-width: 1025px){
     .bottom-row{
         display: table-row;
         border-collapse: collapse;
@@ -25,24 +29,33 @@
     .days{
         display: table-cell;
     }
+
+    .hourly-info{
+        padding-left: 6vw;;
+    }
 }
 
 @media screen and (max-width: 400px){
     .hours-div{
         margin-top: 7vh;
+        width: 100vw;
+        margin-left: -8vw;
     }
+
+
     .hourly-condition {
-        font-size: 13px;
+        font-size: 12px;
 
     }
 
+
+    .hour-time{
+        font-size: 15px;
+    }
     .hour-temp{
-        font-size: 20px;
+        font-size: 15px;
     }
 
-    .hour-forecast-h2{
-        padding-left: 22vw;
-    }
 
     .weather-day{
         margin-top: 0;
@@ -51,19 +64,30 @@
     .day-forecast-h2{
         margin-top: 5vh;
     }
+
+    .hourly-condition{
+        font-weight: bold;
+    }
 }
 
 @media screen and (min-width: 400px) and (max-width: 990px){
     .hours-div{
-        padding-left: 20vw;
+        margin-top: 7vh;
+        margin-left: 10vw;
     }
 
     .hour-forecast-h2{
-        padding-left: 22vw;
+        padding-left: 0vw;
+        width: 100%;
+        margin-left: -5vw;
     }
 
     .day-forecast-h2{
         margin-top: 6vh;
+    }
+
+    .hourly-condition{
+        font-weight: bold;
     }
 
     .weather-day{
@@ -71,6 +95,19 @@
     }
 }
 
+@media screen and (min-width: 400px) and (max-width: 535px){
+    .hours-div{
+        margin-left: 0;
+        width: 100vw;
+        margin-left: -5vw;
+    }
+
+
+
+    .hourly-condition{
+        font-size: 15px;
+    }
+}
 
 body{
     background-color: #E6F3F7;
@@ -118,23 +155,21 @@ body{
     margin-bottom: 3vh;
 }
 
-.hour-forecast-h2{
-    margin-left: -22vw;
-}
 
-.hourly-div{
-    margin-top: 2vh;
-}
 
-.hour-temp,
+
 .hourly-condition{
     margin-left: 1vw;
 }
 
+
 .hour-image{
-    margin-left: -4vw;
+    margin-left: 1vw;
 }
 
+.hourly-info{
+    margin-left: -7vw;
+}
 .block{
     display: block;
 }

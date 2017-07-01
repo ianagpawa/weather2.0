@@ -44,7 +44,7 @@
         </div>
 
         <div class='col-md-12'>
-            <div class='col-md-10 col-md-offset-1'>
+            <div class='container-fluid'>
 
                 <div id='today' class="col-md-2 col-md-offset-3 weather-day" data-toggle="modal" data-target="#Modal" data-day='{{today.day}}'
                     data-monthname='{{today.monthname}}'
@@ -75,16 +75,22 @@
                 </div>
 
                 <div class="col-md-7 hours-div">
-                    <h2 class='bold hour-forecast-h2'>5-Hour Forecast</h2>
+                    <div class='container-fluid'>
+                        <div class='col-md-6 col-md-offset-1'>
+                        <h2 class='bold hour-forecast-h2'>5-Hour Forecast</h2>
+                    </div>
+                    </div>
+                    <br>
                     {% for day in today.hours %}
                     <div class='container-fluid text-left hourly-div'>
 
-                        <div  class='inline col-md-3'>
+                        <div  class='inline col-md-4'>
                             <h4 class='inline hour-time'>{{day.time}}</h4>
+                            <img class='inline hour-image' src='{{day.icon_url}}' height='30' width='30'>
                         </div>
 
-                        <div class='col-md-9 inline'>
-                            <img class='inline hour-image' src='{{day.icon_url}}' height='30' width='30'>
+                        <div class='col-md-8 inline hourly-info'>
+
                             <h3 class='imperial bold inline hour-temp'>{{day.temp.english}}&#176;F</h3>
                             <h3 class='metric bold inline hour-temp'>{{day.temp.metric}}&#176;C</h3>
                             <h4  class='inline hourly-condition'>{{day.condition}}</h4>
@@ -99,38 +105,38 @@
         </div>
 
 
-            <div class='col-md-12 bottom-row'>
-                <div class='col-md-8 col-md-offset-2'>
-                    <h2 class='bold day-forecast-h2 '>5-Day Forecast</h2>
-                    {% for day in rest %}
-                    <div class='col-md-2 days weather-day' data-toggle="modal" data-target="#Modal" data-day='{{day.day}}'
-                        data-monthname='{{day.monthname}}'
-                        data-year='{{day.year}}'
-                        data-weekday='{{day.weekday}}'
-                        data-location='{{day.location}}'
-                        data-high='{{day.high.fahrenheit}}'
-                        data-low='{{day.low.fahrenheit}}'
-                        data-icon='{{day.icon}}'
-                        data-iconurl='{{day.icon_url}}'
-                        data-conditions='{{day.conditions}}'
-                        data-humidity='{{day.humidity}}'
-                        data-wind-direction='{{(day.wind)[0]}}'
-                        data-wind-strength='{{(day.wind)[1][0]}}'
-                        data-text='{{day.text[0]}}'
-                        >
-                        <h2 class='light-bold'>{{day.weekday}}</h2>
-                        <h4>{{day.monthname}} {{day.day}}, {{day.year}}</h4>
-                        <h4 class='imperial light-bold'>High: {{day.high.fahrenheit}}&#176;F</h4>
-                        <h4 class='imperial light-bold'>Low: {{day.low.fahrenheit}}&#176;F</h4>
-                        <h4 class='metric light-bold'>High: {{day.high.celsius}}&#176;C </h4>
-                        <h4 class='metric light-bold'>Low: {{day.low.celsius}}&#176;C</h4>
+        <div class='col-md-12 bottom-row'>
+            <div class='col-md-8 col-md-offset-2'>
+                <h2 class='bold day-forecast-h2 '>5-Day Forecast</h2>
+                {% for day in rest %}
+                <div class='col-md-2 days weather-day' data-toggle="modal" data-target="#Modal" data-day='{{day.day}}'
+                    data-monthname='{{day.monthname}}'
+                    data-year='{{day.year}}'
+                    data-weekday='{{day.weekday}}'
+                    data-location='{{day.location}}'
+                    data-high='{{day.high.fahrenheit}}'
+                    data-low='{{day.low.fahrenheit}}'
+                    data-icon='{{day.icon}}'
+                    data-iconurl='{{day.icon_url}}'
+                    data-conditions='{{day.conditions}}'
+                    data-humidity='{{day.humidity}}'
+                    data-wind-direction='{{(day.wind)[0]}}'
+                    data-wind-strength='{{(day.wind)[1][0]}}'
+                    data-text='{{day.text[0]}}'
+                    >
+                    <h2 class='light-bold'>{{day.weekday}}</h2>
+                    <h4>{{day.monthname}} {{day.day}}, {{day.year}}</h4>
+                    <h4 class='imperial light-bold'>High: {{day.high.fahrenheit}}&#176;F</h4>
+                    <h4 class='imperial light-bold'>Low: {{day.low.fahrenheit}}&#176;F</h4>
+                    <h4 class='metric light-bold'>High: {{day.high.celsius}}&#176;C </h4>
+                    <h4 class='metric light-bold'>Low: {{day.low.celsius}}&#176;C</h4>
 
-                        <img src='{{day.icon_url}}' height='50' width='50'>
-                        <h4 class='light-bold'>{{day.conditions}}</h4>
-                    </div>
-                    {% endfor %}
+                    <img src='{{day.icon_url}}' height='50' width='50'>
+                    <h4 class='light-bold'>{{day.conditions}}</h4>
                 </div>
+                {% endfor %}
             </div>
+        </div>
 
 
         <!-- Modal -->
