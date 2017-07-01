@@ -38,7 +38,7 @@
             <h1 class='bold'>Weather Forecast</h1>
 
             <h2 id='location'>{{today.location}}</h2>
-            <div class='col-md-2 col-md-offset-5'>
+            <div class='col-md-2 col-md-offset-5 convert-div'>
                 <p id='convert-button'>METRIC</p>
             </div>
         </div>
@@ -76,7 +76,7 @@
 
                 <div class="col-md-7 hours-div">
                     <div class='container-fluid'>
-                        <div class='col-md-6 col-md-offset-1'>
+                        <div class='col-md-6'>
                         <h2 class='bold hour-forecast-h2'>5-Hour Forecast</h2>
                     </div>
                     </div>
@@ -90,7 +90,6 @@
                         </div>
 
                         <div class='col-md-8 inline hourly-info'>
-
                             <h3 class='imperial bold inline hour-temp'>{{day.temp.english}}&#176;F</h3>
                             <h3 class='metric bold inline hour-temp'>{{day.temp.metric}}&#176;C</h3>
                             <h4  class='inline hourly-condition'>{{day.condition}}</h4>
@@ -124,7 +123,7 @@
                     data-wind-strength='{{(day.wind)[1][0]}}'
                     data-text='{{day.text[0]}}'
                     >
-                    <h2 class='light-bold'>{{day.weekday}}</h2>
+                    <h2 class='weekday-name light-bold'>{{day.weekday}}</h2>
                     <h4>{{day.monthname}} {{day.day}}, {{day.year}}</h4>
                     <h4 class='imperial light-bold'>High: {{day.high.fahrenheit}}&#176;F</h4>
                     <h4 class='imperial light-bold'>Low: {{day.low.fahrenheit}}&#176;F</h4>

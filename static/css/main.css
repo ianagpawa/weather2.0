@@ -82,6 +82,10 @@
         margin-left: -5vw;
     }
 
+    .hourly-info{
+        padding-left: 8vw;
+    }
+
     .day-forecast-h2{
         margin-top: 6vh;
     }
@@ -102,12 +106,37 @@
         margin-left: -5vw;
     }
 
-
-
     .hourly-condition{
         font-size: 15px;
     }
+
 }
+
+@media screen and (min-width: 1441px){
+    .hour-temp{
+        margin-left: -3vw;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+    .weekday-name{
+        font-size: 24px;
+    }
+
+    .convert-div{
+        width: 50vw;
+        margin-left: 25vw;;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1440px){
+
+    .convert-div{
+        width: 50vw;
+        margin-left: 25vw;;
+    }
+}
+
 
 body{
     background-color: #E6F3F7;
@@ -168,8 +197,9 @@ body{
 }
 
 .hourly-info{
-    margin-left: -7vw;
+    margin-left: -8vw;
 }
+
 .block{
     display: block;
 }
