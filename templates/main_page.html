@@ -63,8 +63,8 @@
                     >
                     <h2 class='light-bold'>{{today.weekday}}</h2>
                     <h4>{{today.monthname}} {{today.day}}, {{today.year}}</h4>
-                    <h3 class='imperial light-bold'>{{today.current_temp.english}}&#176;F</h3>
-                    <h3 class='metric light-bold'>{{today.current_temp.metric}}&#176;C</h3>
+                    <h3 class='imperial light-bold block'>{{today.current_temp.english}}&#176;F</h3>
+                    <h3 class='metric light-bold block'>{{today.current_temp.metric}}&#176;C</h3>
 
                     <!-- <h3 class='imperial'> Low: <span class='light-bold'>{{today.low.fahrenheit}}&#176;F</span>    High: <span class='light-bold'>{{today.high.fahrenheit}}&#176;F</span></h3>
                     <h3 class='metric'> Low: <span class='light-bold'>{{today.low.celsius}}&#176;C</span>    High: <span class='light-bold'>{{today.high.celsius}}&#176;C</span></h3> -->
@@ -74,14 +74,21 @@
                     <h4 class='metric'>Feels like {{today.feels.metric}}&#176;C</h4>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6 hours-div">
                     {% for day in today.hours %}
-                    <div class='container-fluid text-left'>
-                        <!-- <h4 class='inline'>{{day.mon}}/{{day.mday}}</h4> -->
-                        <h3 class='inline'>{{day.time}}</h3>
-                        <h3 class='imperial inline '>{{day.temp.english}}&#176;F</h3>
-                        <h3 class='metric inline '>{{day.temp.metric}}&#176;C</h3>
-                        <h4 class='inline'>{{day.condition}}</h4>
+                    <div class='container-fluid text-left hourly-div'>
+                        <div  class='inline col-md-2'>
+                            <h4 class='inline'>{{day.time}}</h4>
+                        </div>
+
+                        <div class='col-md-8 inline'>
+                            <img class='inline hour-image' src='{{day.icon_url}}' height='30' width='30'>
+                            <h3 class='imperial inline hour-temp'>{{day.temp.english}}&#176;F</h3>
+                            <h3 class='metric inline hour-temp'>{{day.temp.metric}}&#176;C</h3>
+                            <h4  class='inline hourly-condition'>{{day.condition}}</h4>
+
+                        </div>
+
                     </div>
                     {% endfor %}
 

@@ -2,14 +2,18 @@ function conversion(){
     metric = false;
     $("#convert-button").on('click', function(){
         if (metric == false){
+
+            $('.metric').css('display', 'block')
+            $(".hour-temp").css('display', 'inline')
             $(".imperial").css('display', 'none')
-            $('.metric').css('display', 'initial')
             $("#convert-button").html('IMPERIAL')
             $("#convert-button").css("background-color", "#000639")
             metric = true
         } else {
+
+            $('.imperial').css('display', 'block')
+            $(".hour-temp").css('display', 'inline')
             $(".metric").css('display', 'none')
-            $('.imperial').css('display', 'initial')
             $("#convert-button").html('METRIC')
             $("#convert-button").css("background-color", "#660000")
             metric = false
