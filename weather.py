@@ -48,8 +48,9 @@ def get_hourly(hourly):
     all_days = []
     for i in range(5):
         day = hourly[i]
-        feels = day['feelslike']
         temp = day['temp']
+        icon_url = day['icon_url']
+        condition = day['condition']
 
         fcttime = day['FCTTIME']
         time = fcttime['civil']
@@ -57,13 +58,16 @@ def get_hourly(hourly):
         mon =fcttime['mon']
 
         today_hour = {
-            'feels': feels,
+            'condition': condition,
+            "icon_url": icon_url,
             'temp': temp,
             'time': time,
             'mon': mon,
             'mday': mday
         }
+
         today.append(today_hour)
+
     j = 0
     count = 0
     while count < 7:
