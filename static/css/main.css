@@ -1,3 +1,6 @@
+
+
+
 @media screen and (max-width: 700px){
 
     #today,
@@ -12,6 +15,7 @@
 }
 
 
+
 @media screen and (min-width: 750px){
     .bottom-row{
         display: table-row;
@@ -20,6 +24,50 @@
 
     .days{
         display: table-cell;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .hours-div{
+        margin-top: 7vh;
+    }
+    .hourly-condition {
+        font-size: 13px;
+
+    }
+
+    .hour-temp{
+        font-size: 20px;
+    }
+
+    .hour-forecast-h2{
+        padding-left: 22vw;
+    }
+
+    .weather-day{
+        margin-top: 0;
+    }
+
+    .day-forecast-h2{
+        margin-top: 5vh;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 990px){
+    .hours-div{
+        padding-left: 20vw;
+    }
+
+    .hour-forecast-h2{
+        padding-left: 22vw;
+    }
+
+    .day-forecast-h2{
+        margin-top: 6vh;
+    }
+
+    .weather-day{
+        margin-top: -2vh;
     }
 }
 
@@ -70,6 +118,10 @@ body{
     margin-bottom: 3vh;
 }
 
+.hour-forecast-h2{
+    margin-left: -22vw;
+}
+
 .hourly-div{
     margin-top: 2vh;
 }
@@ -77,6 +129,10 @@ body{
 .hour-temp,
 .hourly-condition{
     margin-left: 1vw;
+}
+
+.hour-image{
+    margin-left: -4vw;
 }
 
 .block{
@@ -90,6 +146,7 @@ p{
 .metric{
     display:none;
 }
+
 
 .weather-day:hover{
     cursor: pointer;
