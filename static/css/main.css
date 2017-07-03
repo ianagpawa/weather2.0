@@ -185,7 +185,9 @@ body{
 }
 
 
-
+.hours-div{
+    margin-left: -7vw;
+}
 
 .hourly-condition{
     margin-left: 1vw;
@@ -197,7 +199,7 @@ body{
 }
 
 .hourly-info{
-    margin-left: -8vw;
+    margin-left: -4vw;
 }
 
 .block{

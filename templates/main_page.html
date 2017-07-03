@@ -8,7 +8,7 @@
         <meta name="description" content="Current Weather App">
         <title>Current Weather App</title>
 
-
+        <link rel="icon" type="image/x-icon" href="/static/code-break/favicon.ico">
         <link rel="stylesheet"
            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -46,7 +46,7 @@
         <div class='col-md-12'>
             <div class='container-fluid'>
 
-                <div id='today' class="col-md-2 col-md-offset-3 weather-day" data-toggle="modal" data-target="#Modal" data-day='{{today.day}}'
+                <div id='today' class="col-md-3 col-md-offset-3 weather-day" data-toggle="modal" data-target="#Modal" data-day='{{today.day}}'
                     data-monthname='{{today.monthname}}'
                     data-year='{{today.year}}'
                     data-weekday='{{today.weekday}}'
@@ -60,6 +60,7 @@
                     data-wind-direction='{{(today.wind)[0]}}'
                     data-wind-strength='{{(today.wind)[1][0]}}'
                     data-text='{{today.text[0]}}'
+                    data-temp='{{today.current_temp.english}}'
                     >
                     <h2 class='light-bold'>{{today.weekday}}</h2>
                     <h4>{{today.monthname}} {{today.day}}, {{today.year}}</h4>
@@ -74,7 +75,7 @@
                     <h4 class='metric'>Feels like {{today.feels.metric}}&#176;C</h4>
                 </div>
 
-                <div class="col-md-7 hours-div">
+                <div class="col-md-6 hours-div">
                     <div class='container-fluid'>
                         <div class='col-md-6'>
                         <h2 class='bold hour-forecast-h2'>5-Hour Forecast</h2>
@@ -122,13 +123,12 @@
                     data-wind-direction='{{(day.wind)[0]}}'
                     data-wind-strength='{{(day.wind)[1][0]}}'
                     data-text='{{day.text[0]}}'
+                    data-temp='{{day.current_temp.english}}'
                     >
                     <h2 class='weekday-name light-bold'>{{day.weekday}}</h2>
                     <h4>{{day.monthname}} {{day.day}}, {{day.year}}</h4>
-                    <h4 class='imperial light-bold'>High: {{day.high.fahrenheit}}&#176;F</h4>
-                    <h4 class='imperial light-bold'>Low: {{day.low.fahrenheit}}&#176;F</h4>
-                    <h4 class='metric light-bold'>High: {{day.high.celsius}}&#176;C </h4>
-                    <h4 class='metric light-bold'>Low: {{day.low.celsius}}&#176;C</h4>
+                    <h4 class='imperial light-bold'>{{day.current_temp.english}}&#176;F</h4>
+                    <h4 class='metric light-bold'>{{day.current_temp.metric}}&#176;C</h4>
 
                     <img src='{{day.icon_url}}' height='50' width='50'>
                     <h4 class='light-bold'>{{day.conditions}}</h4>
@@ -154,6 +154,8 @@
                     <div class='col-md-4'>Humidity: <span class='modal-humidity'></span></div>
                     <div class='col-md-4'>
                         <h4 class='light-bold'>Temp: <span class='modal-low'></span>&#176;F - <span class='modal-high'></span>&#176;F</h4>
+                        <h2 class='light-bold'><span class='modal-temp'></span>&#176;F</h4>
+
                     </div>
                     <div class='col-md-4'>Wind: <span class='modal-wind-direction'></span> at <span class='modal-wind-strength'>mph</span></div>
                   </div>

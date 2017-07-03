@@ -42,6 +42,7 @@ function modal(){
         var windDirection = button.data('wind-direction')
         var windStrength = button.data('wind-strength')
         var text = button.data('text')
+        var temp = button.data('temp')
 
         var date = monthname + " " + day + ", " + year
 
@@ -56,6 +57,7 @@ function modal(){
         modal.find('.modal-wind-direction').text(windDirection)
         modal.find('.modal-wind-strength').text(windStrength)
         modal.find('.modal-text').text(text)
+        modal.find('.modal-temp').text(temp)
 
     })
 }
