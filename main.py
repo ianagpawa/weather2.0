@@ -19,7 +19,7 @@ class MainPage(Handler):
         KEY = json.loads(open('client_secrets.json', 'r').read())['UNDERGROUND']
         TEST_IP = json.loads(open('client_secrets.json', 'r').read())['TEST_IP']
         # NEED TO CHANGE IP
-        hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/autoip.json?geo_ip=%s" % (KEY, TEST_IP)
+        hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/autoip.json?geo_ip=%s" % (KEY, ip)
         h = httplib2.Http()
         hourly_result = json.loads(h.request(hourly_url,'GET')[1])
 
@@ -28,7 +28,7 @@ class MainPage(Handler):
             response.heads['Content-Type'] = 'application/json'
             return response
 
-        forecast_url = "http://api.wunderground.com/api/%s/forecast10day/q/autoip.json?geo_ip=%s" % (KEY, TEST_IP)
+        forecast_url = "http://api.wunderground.com/api/%s/forecast10day/q/autoip.json?geo_ip=%s" % (KEY, ip)
         j = httplib2.Http()
         forecast_result = json.loads(j.request(forecast_url,'GET')[1])
 

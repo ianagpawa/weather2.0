@@ -63,3 +63,8 @@ weather2.0/
 [Github](https://github.com/ianagpawa)
 
  agpawaji@gmail.com
+
+#### Credits
+Favicon provided by freefavicon.com
+
+https://www.freefavicon.com/freefavicons/objects/iconinfo/code-break-152-246266.html
