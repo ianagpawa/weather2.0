@@ -13,8 +13,13 @@
 
     }
 
+
     p{
         font-size: 40px;
+    }
+
+    .weather-day{
+        padding-top: 5vh;
     }
 }
 
@@ -72,14 +77,12 @@
 
 @media screen and (min-width: 400px) and (max-width: 990px){
     .hours-div{
-        margin-top: 7vh;
-        margin-left: 10vw;
+        margin-top: 10vh;
     }
 
     .hour-forecast-h2{
-        padding-left: 0vw;
         width: 100%;
-        margin-left: -5vw;
+        margin-left: 5vw;
     }
 
     .hourly-info{
@@ -101,9 +104,7 @@
 
 @media screen and (min-width: 400px) and (max-width: 535px){
     .hours-div{
-        margin-left: 0;
         width: 100vw;
-        margin-left: -5vw;
     }
 
     .hourly-condition{
@@ -137,6 +138,17 @@
     }
 }
 
+
+@media screen and (min-width: 475px) and (max-width: 995px){
+    .hourly-div{
+        margin-left: 20vw;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1300px){
+    .weather-day{
+    }
+}
 
 body{
     background-color: #E6F3F7;
@@ -186,7 +198,7 @@ body{
 
 
 .hours-div{
-    margin-left: -7vw;
+    margin-left: -5vw;
 }
 
 .hourly-condition{
