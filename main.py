@@ -15,12 +15,12 @@ class MainPage(Handler):
     This class is a child of Handler and is for FrontPage.
     """
     def get(self):
-        ip = self.request.remote_addr
-        test = self.request
+
         KEY = json.loads(open('client_secrets.json', 'r').read())['UNDERGROUND']
         TEST_IP = json.loads(open('client_secrets.json', 'r').read())['TEST_IP']
+        ip = self.request.remote_addr
         # NEED TO CHANGE IP
-        hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/autoip.json?geo_ip=%s" % (KEY, ip)
+        hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/autoip.json?geo_ip=%s" % (KEY, TEST_IP)
         h = httplib2.Http()
         hourly_result = json.loads(h.request(hourly_url,'GET')[1])
 
@@ -29,7 +29,7 @@ class MainPage(Handler):
             response.heads['Content-Type'] = 'application/json'
             return response
 
-        forecast_url = "http://api.wunderground.com/api/%s/forecast10day/q/autoip.json?geo_ip=%s" % (KEY, ip)
+        forecast_url = "http://api.wunderground.com/api/%s/forecast10day/q/autoip.json?geo_ip=%s" % (KEY, TEST_IP)
         j = httplib2.Http()
         forecast_result = json.loads(j.request(forecast_url,'GET')[1])
 
@@ -41,7 +41,7 @@ class MainPage(Handler):
 
         today, rest = get_all_weather(hourly_result, forecast_result)
 
-        return self.render("main_page.html", today=today, rest=rest, test=test)
+        return self.render("main_page.html", today=today, rest=rest)
 
 class TestPage(Handler):
         def get(self):
@@ -49,7 +49,7 @@ class TestPage(Handler):
             test = self.request
 
 
-            return self.render("test.html", test=test)
+            return self.render("test.html", ip=ip, test=test)
 
 
 
