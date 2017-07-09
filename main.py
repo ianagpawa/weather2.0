@@ -17,11 +17,17 @@ class MainPage(Handler):
     def get(self):
 
         KEY = json.loads(open('client_secrets.json', 'r').read())['UNDERGROUND']
-        TEST_IP = json.loads(open('client_secrets.json', 'r').read())['TEST_IP']
-        ip = self.request.remote_addr
 
-        # NEED TO CHANGE IP
-        hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/autoip.json?geo_ip=%s" % (KEY, TEST_IP)
+        # USING IP ADDRESS, NOT RELIABLE
+        # TEST_IP = json.loads(open('client_secrets.json', 'r').read())['TEST_IP']
+        # ip = self.request.remote_addr
+
+        # USING GEO COORDINATES
+        # TEST_GEO = json.loads(open('client_secrets.json', 'r').read())['TEST_GEO']
+        geo = self.request.headers['X-Appengine-CityLatLong']
+
+
+        hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/%s.json" % (KEY, geo)
         h = httplib2.Http()
         hourly_result = json.loads(h.request(hourly_url,'GET')[1])
 
@@ -30,7 +36,8 @@ class MainPage(Handler):
             response.heads['Content-Type'] = 'application/json'
             return response
 
-        forecast_url = "http://api.wunderground.com/api/%s/forecast10day/q/autoip.json?geo_ip=%s" % (KEY, TEST_IP)
+
+        forecast_url = "http://api.wunderground.com/api/%s/forecast10day/q/%s.json" % (KEY, geo)
         j = httplib2.Http()
         forecast_result = json.loads(j.request(forecast_url,'GET')[1])
 
@@ -43,20 +50,18 @@ class MainPage(Handler):
         today, rest = get_all_weather(hourly_result, forecast_result)
 
         return self.render("main_page.html", today=today, rest=rest)
-
-class TestPage(Handler):
-        def get(self):
-            ip = self.request.remote_addr
-            test = self.request.headers['X-Appengine-CityLatLong']
-            # coordinates = self.request.X-AppEngine-Citylatlong
-
-
-            return self.render("test.html", ip=ip, test=test)
-
+#
+# class TestPage(Handler):
+#         def get(self):
+#             ip = self.request.remote_addr
+#             test = self.request.headers['X-Appengine-CityLatLong']
+#
+#
+#             return self.render("test.html", ip=ip, test=test)
 
 
 
-app = webapp2.WSGIApplication([ ("/", MainPage),
-                                ("/test", TestPage)
+
+app = webapp2.WSGIApplication([ ("/", MainPage)
                                 ],
                                 debug=True)
