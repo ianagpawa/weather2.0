@@ -19,8 +19,9 @@ class MainPage(Handler):
         KEY = json.loads(open('client_secrets.json', 'r').read())['UNDERGROUND']
         TEST_IP = json.loads(open('client_secrets.json', 'r').read())['TEST_IP']
         ip = self.request.remote_addr
+
         # NEED TO CHANGE IP
-        hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/autoip.json?geo_ip=%s" % (KEY, ip)
+        hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/autoip.json?geo_ip=%s" % (KEY, TEST_IP)
         h = httplib2.Http()
         hourly_result = json.loads(h.request(hourly_url,'GET')[1])
 
@@ -29,7 +30,7 @@ class MainPage(Handler):
             response.heads['Content-Type'] = 'application/json'
             return response
 
-        forecast_url = "http://api.wunderground.com/api/%s/forecast10day/q/autoip.json?geo_ip=%s" % (KEY, ip)
+        forecast_url = "http://api.wunderground.com/api/%s/forecast10day/q/autoip.json?geo_ip=%s" % (KEY, TEST_IP)
         j = httplib2.Http()
         forecast_result = json.loads(j.request(forecast_url,'GET')[1])
 
@@ -46,7 +47,8 @@ class MainPage(Handler):
 class TestPage(Handler):
         def get(self):
             ip = self.request.remote_addr
-            test = self.request
+            test = self.request.headers['X-Appengine-CityLatLong']
+            # coordinates = self.request.X-AppEngine-Citylatlong
 
 
             return self.render("test.html", ip=ip, test=test)
