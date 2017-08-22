@@ -29,9 +29,10 @@ class MainPage(Handler):
 
 
         hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/%s.json" % (KEY, geo)
+
         h = httplib2.Http()
         hourly_result = json.loads(h.request(hourly_url,'GET')[1])
-        pprint.pprint(hourly_result)
+
 
         if hourly_result.get('error') is not None:
             response = make_response(json.dumps(hourly_result.get('error')), 500)
@@ -58,10 +59,15 @@ class MainPage(Handler):
             city_name = self.request.get('city')
             city_name = "_".join(city_name.split(" "))
 
+            state = self.request.get('state')
+            location = ",".join([city_name, state])
+
             KEY = json.loads(open('client_secrets.json', 'r').read())['UNDERGROUND']
 
 
-            hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/%s.json" % (KEY, city_name)
+            hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/%s.json" % (KEY, location)
+
+
             h = httplib2.Http()
             hourly_result = json.loads(h.request(hourly_url,'GET')[1])
 
@@ -71,7 +77,9 @@ class MainPage(Handler):
                 return response
 
 
-            forecast_url = "http://api.wunderground.com/api/%s/forecast10day/q/%s.json" % (KEY, city_name)
+            forecast_url = "http://api.wunderground.com/api/%s/forecast10day/q/%s.json" % (KEY, location)
+
+
             j = httplib2.Http()
             forecast_result = json.loads(j.request(forecast_url,'GET')[1])
 
