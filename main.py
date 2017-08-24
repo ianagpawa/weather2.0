@@ -52,15 +52,18 @@ class MainPage(Handler):
 
         today, rest = get_all_weather(hourly_result, forecast_result)
 
-        return self.render("main_page.html", today=today, rest=rest)
+        city_name = "New York, NY"
+        return self.render("main_page.html", today=today, rest=rest, city_name=city_name)
 
     def post(self):
         if self.request.get("city"):
-            city_name = self.request.get('city')
-            city_name = "_".join(city_name.split(" "))
+            city = self.request.get('city')
+            city_n = "_".join(city.split(" "))
 
             state = self.request.get('state')
-            location = ",".join([city_name, state])
+            location = ",".join([city_n, state])
+
+            city_name = ",".join([city, state])
 
             KEY = json.loads(open('client_secrets.json', 'r').read())['UNDERGROUND']
 
@@ -93,7 +96,7 @@ class MainPage(Handler):
 
             today, rest = get_all_weather(hourly_result, forecast_result)
 
-            return self.render("main_page.html", today=today, rest=rest)
+            return self.render("main_page.html", today=today, rest=rest, city_name=city_name)
 
 #
 # class TestPage(Handler):
