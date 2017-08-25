@@ -9,6 +9,10 @@ from weather import get_all_weather as get_all_weather
 
 from Handler import Handler
 
+def casing(name):
+    words = name.split(" ")
+    return " ".join(list(map(lambda x: x[0].capitalize()+x[1:],words)))
+
 
 class MainPage(Handler):
     """
@@ -55,6 +59,8 @@ class MainPage(Handler):
         city_name = "New York, NY"
         return self.render("main_page.html", today=today, rest=rest, city_name=city_name)
 
+
+
     def post(self):
         if self.request.get("city"):
             city = self.request.get('city')
@@ -63,7 +69,8 @@ class MainPage(Handler):
             state = self.request.get('state')
             location = ",".join([city_n, state])
 
-            city_name = ",".join([city, state])
+            city = casing(city)
+            city_name = ", ".join([city, state])
 
             KEY = json.loads(open('client_secrets.json', 'r').read())['UNDERGROUND']
 
