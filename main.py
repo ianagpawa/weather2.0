@@ -31,6 +31,7 @@ class MainPage(Handler):
 
         # geo = self.request.headers['X-Appengine-CityLatLong']
 
+        # city_name = self.request.headers['X-AppEngine-City']
 
         hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/%s.json" % (KEY, geo)
 
