@@ -99,14 +99,15 @@
 
 
             </form>
-            <h2 id='location'>{{city_name}}</h2>
-            <div class='col-md-2 col-md-offset-5 convert-div'>
-                <p id='convert-button'>METRIC</p>
-            </div>
+
         </div>
 
         <div class='col-md-12'>
-            <div class='container-fluid'>
+            
+                <h2 id='location'>{{city_name}}</h2>
+                <div class='col-md-2 col-md-offset-5 convert-div'>
+                    <p id='convert-button'>METRIC</p>
+                </div>
 
                 <div id='today' class="col-md-3 col-md-offset-3 weather-day" data-toggle="modal" data-target="#Modal" data-day='{{today.day}}'
                     data-monthname='{{today.monthname}}'
@@ -163,7 +164,7 @@
                     {% endfor %}
 
                 </div>
-            </div>
+
         </div>
 
 
