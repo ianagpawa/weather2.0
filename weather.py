@@ -2,7 +2,6 @@ import pprint
 
 def get_forecast(result):
     arr = []
-
     for i in range(7):
         simpleforecast = result['forecast']['simpleforecast']['forecastday'][i]
         txtforecast = result['forecast']['txt_forecast']['forecastday'][i]
@@ -128,18 +127,21 @@ class Today(WeatherDay):
 
 def get_all_weather(hourly_result, forecast_result):
     rest = []
-    hourly_forecast = hourly_result['hourly_forecast']
-    today_hours, all_hours = get_hourly(hourly_forecast)
+    try:
+        hourly_forecast = hourly_result['hourly_forecast']
+        today_hours, all_hours = get_hourly(hourly_forecast)
 
-    forecast_10day = get_forecast(forecast_result)
+        forecast_10day = get_forecast(forecast_result)
 
-    for i in range(len(forecast_10day)):
-        hourly = all_hours[i]
-        forecast = forecast_10day[i]
-        if i == 0:
-            today = Today(forecast, hourly, today_hours)
-        else:
-            day = WeatherDay(forecast, hourly)
-            rest.append(day)
+        for i in range(len(forecast_10day)):
+            hourly = all_hours[i]
+            forecast = forecast_10day[i]
+            if i == 0:
+                today = Today(forecast, hourly, today_hours)
+            else:
+                day = WeatherDay(forecast, hourly)
+                rest.append(day)
 
-    return today, rest
+        return today, rest
+    except KeyError:
+        return None, None
