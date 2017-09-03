@@ -28,6 +28,12 @@ from google.appengine.ext import vendor
 vendor.add('lib')
 ```
 
+5.  In the project folder, create file `client_secrets.json`, and add your Weather Underground API key, testing IP address, and testing geolocation coordinates values as follows:
+```
+{"UNDERGROUND": "XXXXXXXXXX", "TEST_IP": "XX.XXX.XXX.XXX", "TEST_GEO": "XX.XXXXXX, XX.XXXXXX"}
+```
+
+
 ### Viewing the app locally
 
 Run the following command while the terminal is in the project directory:
