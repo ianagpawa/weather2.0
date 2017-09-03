@@ -103,8 +103,10 @@ class MainPage(Handler):
 
 
             today, rest = get_all_weather(hourly_result, forecast_result)
-
-            return self.render("main_page.html", today=today, rest=rest, city_name=city_name)
+            if today == None:
+                return self.redirect('/')
+            else:
+                return self.render("main_page.html", today=today, rest=rest, city_name=city_name)
 
 #
 # class TestPage(Handler):
