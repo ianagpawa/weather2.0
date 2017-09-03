@@ -102,7 +102,11 @@
 
         </div>
 
-        
+        {% if error %}
+        <div>
+            <h4>{{error}}</h4>
+        </div>
+        {% endif %}
         <div class='col-md-12'>
                 <h2 id='location'>{{city_name}}</h2>
                 <div class='col-md-2 col-md-offset-5 convert-div'>

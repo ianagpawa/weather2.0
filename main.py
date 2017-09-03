@@ -27,11 +27,12 @@ class MainPage(Handler):
         # ip = self.request.remote_addr
 
         # USING GEO COORDINATES
-        geo = json.loads(open('client_secrets.json', 'r').read())['TEST_GEO']
-
         # geo = self.request.headers['X-Appengine-CityLatLong']
 
+        geo = json.loads(open('client_secrets.json', 'r').read())['TEST_GEO']
+
         # city_name = self.request.headers['X-AppEngine-City']
+        city_name = "New York, NY"
 
         hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/%s.json" % (KEY, geo)
 
@@ -57,8 +58,10 @@ class MainPage(Handler):
 
         today, rest = get_all_weather(hourly_result, forecast_result)
 
-        city_name = "New York, NY"
-        return self.render("main_page.html", today=today, rest=rest, city_name=city_name)
+        error = self.request.get('error')
+
+        return self.render("main_page.html", today=today, rest=rest,
+                            city_name=city_name, error=error)
 
 
 
@@ -104,9 +107,12 @@ class MainPage(Handler):
 
             today, rest = get_all_weather(hourly_result, forecast_result)
             if today == None:
-                return self.redirect('/')
+                error = "Not a real city"
+                return self.redirect('/?error=%s' % error)
             else:
-                return self.render("main_page.html", today=today, rest=rest, city_name=city_name)
+                error = None
+                return self.render("main_page.html", today=today, rest=rest,
+                                    city_name=city_name, error=error)
 
 #
 # class TestPage(Handler):
