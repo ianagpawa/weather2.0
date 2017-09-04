@@ -59,6 +59,8 @@ class MainPage(Handler):
         today, rest = get_all_weather(hourly_result, forecast_result)
 
         error = self.request.get('error')
+        if error:
+            error = "%s is not valid!  Retry search." % error
 
         return self.render("main_page.html", today=today, rest=rest,
                             city_name=city_name, error=error)
@@ -107,7 +109,7 @@ class MainPage(Handler):
 
             today, rest = get_all_weather(hourly_result, forecast_result)
             if today == None:
-                error = "Not a real city"
+                error = city_name
                 return self.redirect('/?error=%s' % error)
             else:
                 error = None

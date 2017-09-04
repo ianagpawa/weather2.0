@@ -37,7 +37,12 @@
     <body class='text-center'>
         <div class="col-md-12 top-div">
             <h1 class='bold'>Weather Forecast</h1>
-            <br>
+        
+            {% if error %}
+            <div>
+                <h3 id='error'>{{error}}</h3>
+            </div>
+            {% endif %}
             <form method='post'>
                 <div class='text-center'>
                     <input type='text' name='city' placeholder='Search for city'>
@@ -102,11 +107,7 @@
 
         </div>
 
-        {% if error %}
-        <div>
-            <h3 id='error'>{{error}}</h3>
-        </div>
-        {% endif %}
+
         <div class='col-md-12'>
                 <h2 id='location'>{{city_name}}</h2>
                 <div class='col-md-2 col-md-offset-5 convert-div'>

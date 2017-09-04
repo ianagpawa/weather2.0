@@ -159,6 +159,11 @@ body{
 .top-div{
     margin-top: 2vh;
 }
+#error{
+    color: red;
+    font-weight: bold;
+}
+
 #location{
     margin-top: 3vh;
     /*font-variant: small-caps;*/
