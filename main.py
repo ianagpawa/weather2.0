@@ -27,12 +27,12 @@ class MainPage(Handler):
         # ip = self.request.remote_addr
 
         # USING GEO COORDINATES
-        # geo = self.request.headers['X-Appengine-CityLatLong']
+        geo = self.request.headers['X-Appengine-CityLatLong']
 
-        geo = json.loads(open('client_secrets.json', 'r').read())['TEST_GEO']
+        # geo = json.loads(open('client_secrets.json', 'r').read())['TEST_GEO']
 
-        # city_name = self.request.headers['X-AppEngine-City']
-        city_name = "New York, NY"
+        city_name = self.request.headers['X-AppEngine-City']
+        # city_name = "New York, NY"
 
         hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/%s.json" % (KEY, geo)
 
