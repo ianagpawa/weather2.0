@@ -31,7 +31,7 @@ class MainPage(Handler):
 
         # geo = json.loads(open('client_secrets.json', 'r').read())['TEST_GEO']
 
-        city_name = self.request.headers['X-AppEngine-City']
+        city_name = casing(self.request.headers['X-AppEngine-City'])
         # city_name = "New York, NY"
 
         hourly_url = "http://api.wunderground.com/api/%s/hourly10day/q/%s.json" % (KEY, geo)
